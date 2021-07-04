@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+      <title>English society</title>
+      <style>
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(80, 80, 80);
+            color:rgb(230, 230, 230)
+         }
+
+         .disclaimer{
+            position: fixed;
+            z-index: 1;
+            margin-left: 35%;
+            font-size: 30%;
+            height: 30%;
+            width: 30%;
+            left: 80%;
+            top: 25%;
+            overflow: hidden;
+            background-color: rgb(50, 50, 50);
+            text-align: center;
+            transition: top 0.2s, left 1s, margin-left 0.2s, width 0.2s, height 0.2s, font-size 0.2s
+         }
+
+         .disclaimer.show{
+            font-size: 100%;
+            height: 100%;
+            margin-left: 0;
+            padding-right: 0;
+            padding-left: 0;
+            width: 100%;
+            left: 0;
+            top: 0;
+         }
+
+         .disclaimer h1{
+            padding-top: 20%
+         }
+
+         .alerts{
+            position: fixed;
+            z-index: 3;
+            color: white;
+            background-color: #ff0000;
+            width: 10%;
+            bottom: -10%;
+            right: 0;
+            opacity: 0;
+            transition: bottom 1s, opacity 0.3s;
+         }
+
+         .alerts.show{
+            bottom: 0;
+            opacity: 0.4
+         }
+
+         .main{
+            position: fixed;
+            z-index: 1;
+            text-align: center;
+            background-color: rgb(50, 50, 50);
+            overflow: auto;
+            width: 30%;
+            height: 30%;
+            left: -100%;
+            top: 25%;
+            transition: top 0.8s, left 0.2s, width 0.8s, height 0.8s;
+         }
+
+         .main.show{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+         }
+
+         .hoverOverContainer{
+            margin-top: -2%;
+            margin-left: -90%;
+            padding-bottom: 3%;
+            opacity: 0;
+            transition: opacity 1.5s
+         }
+
+         .hoverOverContainer.show{
+            opacity: 1
+         }
+
+         .hoverOver{
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            background-color: white;
+            border-color: white;
+            transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+         }
+
+         .hoverOver.enable{
+            background-color: rgb(65, 238, 65);
+            border-color: rgb(65, 238, 65)
+         }
+
+         .hoverOver.disable{
+            color: white;
+            background-color: red;
+            border-color: red
+         }
+
+         .title{
+            font-size: 0%;
+            padding-top: 1%;
+            transition: font-size 0.8s, padding-top 0.8s;
+         }
+
+         .title.show{
+            padding-top: 0;
+            font-size: 100%
+         }
+
+         .centerLogo{
+            z-index: 2;
+            width: 0%;
+            padding-left: 50%;
+            margin-top: 10%;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .centerLogo.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: 0
+         }
+
+         .centerLogoDetailsLine{
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+            margin-left: 16%;
+            margin-top: 5%;;
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .centerLogoDetailsLine.show{
+            opacity: 1
+         }
+
+         .centerLogoDetailsLine hr{
+            height: 4px;
+            width: 14%;
+            border: 0;
+            background: rgba(250, 250, 250, 0.8)
+         }
+
+         .centerLogoDetails{
+            position: fixed;
+            z-index: 5;
+            margin-left: 73%;
+            border: 2px solid rgb(250, 250, 250);
+            margin-top: 3%;
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .centerLogoDetails.show{
+            opacity: 1
+         }
+
+         .centerLogo img{
+            width: 30%
+         }
+
+         .graduationHatSelection{
+            position: fixed;
+            z-index: 5;
+            width: 25%;
+            margin-left: 8.3%;
+            margin-top: -7%;
+            border: 2px solid rgb(250, 250, 250);
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .graduationHatSelection.show{
+            opacity: 1
+         }
+
+         .graduationHatLine{
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+            margin-left: -10%;
+            margin-top: -5%;
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .graduationHatLine.show{
+            opacity: 1
+         }
+
+         .graduationHatLine hr{
+            height: 4px;
+            width: 13%;
+            border: 0;
+            background: rgba(250, 250, 250, 0.8)
+         }
+
+         .projectName{
+            z-index: 3;
+            width: 0;
+            padding-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .projectName.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: -29.5%
+         }
+
+         .projectName img{
+            width: 16%
+         }
+
+         .graduationHatBackground{
+            z-index: 3;
+            width: 0;
+            padding-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .graduationHatBackground.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: -2%
+         }
+
+         .graduationHatBackground img{
+            width: 10%
+         }
+
+         .graduationHat{
+            z-index: 4;
+            width: 0;
+            padding-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .graduationHat.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: -6.5%;
+         }
+
+         .graduationHat img{
+            width: 7%
+         }
+
+         .handshakeBackground{
+            z-index: 3;
+            width: 0;
+            padding-left: 50%;
+            margin-top: -0.5;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .handshakeBackground.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: 0.5%
+         }
+
+         .handshakeBackground img{
+            width: 20%
+         }
+
+         .handShakeSelection{
+            position: fixed;
+            z-index: 5;
+            margin-left: 79%;
+            margin-top: -7%;
+            border: 2px solid rgb(250, 250, 250);
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .handShakeSelection.show{
+            opacity: 1
+         }
+
+         .handShakeLine{
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+            margin-left: 19%;
+            margin-top: -5%;
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .handShakeLine hr{
+            height: 4px;
+            width: 20%;
+            border: 0;
+            background: rgba(250, 250, 250, 0.8)
+         }
+
+         .handShakeLine.show{
+            opacity: 1
+         }
+
+         .handshake{
+            z-index: 4;
+            width: 0;
+            padding-left: 50%;
+            margin-top: -7%;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .handshake.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: -7%
+         }
+
+         .handshake img{
+            width: 16%
+         }
+
+         .bookBackground{
+            z-index: 3;
+            width: 0;
+            padding-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .bookBackground.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: 0
+         }
+
+         .bookBackground img{
+            width: 18%
+         }
+
+         .bookSelection{
+            position: fixed;
+            z-index: 5;
+            width: 15%;
+            margin-left: 6.9%;
+            margin-top: -8%;
+            border: 2px solid rgb(250, 250, 250);
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .bookSelection.show{
+            opacity: 1
+         }
+
+         .bookLine{
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+            margin-left: -17%;
+            margin-top: -5%;
+            opacity: 0;
+            transition: opacity 0.8s
+         }
+
+         .bookLine.show{
+            opacity: 1
+         }
+
+         .bookLine hr{
+            height: 4px;
+            width: 22%;
+            border: 0;
+            background: rgba(250, 250, 250, 0.8)
+         }
+
+         .book{
+            z-index: 4;
+            width: 0;
+            padding-left: 50%;
+            margin-top: -10%;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+         
+         .book.show{
+            width: 100%;
+            padding-left: 0;
+            margin-top: -10%;
+         }
+
+         .book img{
+            width: 12%
+         }
+
+         .lowerLogo{
+            width: 0%;
+            padding-left: 50%;
+            margin-top: 5%;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .lowerLogo.show{
+            margin-top: -16%;
+            padding-left: 0;
+            width: 100%
+         }
+
+         .lowerLogo img{
+            width: 50%
+         }
+
+         .schoolName{
+            z-index: 3;
+            width: 0%;
+            padding-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+         }
+
+         .schoolName.show{
+            width: 100%;
+            margin-top: -26.3%;
+            padding-left: 0
+         }
+
+         .schoolName img{
+            width: 47%
+         }
+
+         .footer{
+            position: fixed;
+            z-index: 1;
+            font-size: 56%; /* Note: Heading 6 minimum size is 56% */
+            cursor: default;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            padding-right: 0.3%;
+            opacity: 0;
+            transition: opacity 1.3s;
+         }
+
+         .footerLink{
+            color:rgb(230, 230, 230)
+         }
+
+         .footer h6{
+            margin-top: 1%;
+            margin-bottom: 0;
+         }
+
+         .footer.show{
+            opacity: 0.5
+         }
+      </style>
+      <script>
+         /* For any website developers wondering about the JavaScript I'm using:
+            Yup, you didn't see wrongly. This can't be loaded in old IE because this is ES6
+          */
+         window.onload = function(){
+            const disclaimer = document.getElementById('disclaimer')
+            const main = document.getElementById('main')
+            const footer = document.getElementById('footer')
+            const title = document.getElementById('title')
+            const lowerLogo = document.getElementById('lowerLogo')
+            const centerLogo = document.getElementById('centerLogo')
+            const hoverOverContainer = document.getElementById('hoverOverContainer')
+            const hoverOver = document.getElementById('hoverOver')
+            const alerts = document.getElementById('alerts')
+            const schoolName = document.getElementById('schoolName')
+            const projectName = document.getElementById('projectName')
+            const graduationHatBackground = document.getElementById('graduationHatBackground')
+            const graduationHat = document.getElementById('graduationHat')
+            const handshakeBackground = document.getElementById('handshakeBackground')
+            const handshake = document.getElementById('handshake')
+            const bookBackground = document.getElementById('bookBackground')
+            const book = document.getElementById('book')
+            const centerLogoDetails = document.getElementById('centerLogoDetails')
+            const centerLogoDetailsLine = document.getElementById('centerLogoDetailsLine')
+            const graduationHatSelection = document.getElementById('graduationHatSelection')
+            const graduationHatLine = document.getElementById('graduationHatLine')
+            const handShakeSelection = document.getElementById('handShakeSelection')
+            const handShakeLine = document.getElementById('handShakeLine')
+            const bookSelection = document.getElementById('bookSelection')
+            const bookLine = document.getElementById('bookLine')
+
+            hoverOver.onclick = function(){
+               const hoverOverState = hoverOver.classList.value.split(' ')[1]
+               alerts.classList.add('show')
+               alerts.innerHTML = 'Error: hover over is not ready'
+               setTimeout(() => {
+                  alerts.classList.remove('show')
+               }, 10000);
+
+               if(hoverOverState === 'enable'){
+                  hoverOver.classList.remove('enable')
+                  hoverOver.classList.add('disable')
+                  hoverOver.innerHTML = 'Enable hover over'
+                  centerLogo.classList.remove('hoverOverActive')
+                  lowerLogo.classList.remove('hoverOverActive')
+
+               }else if(hoverOverState === 'disable'){
+                  hoverOver.classList.remove('disable')
+                  hoverOver.classList.add('enable')
+                  hoverOver.innerHTML = 'Disable hover over'
+                  centerLogo.classList.add('hoverOverActive')
+                  lowerLogo.classList.add('hoverOverActive')
+               }
+            }
+
+            const titleAnimation = () => {
+               // This is too repetitive. There's actually a better way to do this. Will be dealt with in the next version if I have time
+               title.innerHTML = 'E'
+               setTimeout(() => {
+                  title.innerHTML = 'En'
+                  setTimeout(() => {
+                     title.innerHTML = 'Eng'
+                     setTimeout(() => {
+                        title.innerHTML = 'Engl'
+                        setTimeout(() => {
+                           title.innerHTML = 'Engli'
+                           setTimeout(() => {
+                              title.innerHTML = 'Englis'
+                              setTimeout(() => {
+                                 title.innerHTML = 'English'
+                                 setTimeout(() => {
+                                    title.innerHTML = 'English s'
+                                    setTimeout(() => {
+                                       title.innerHTML = 'English so'
+                                       setTimeout(() => {
+                                          title.innerHTML = 'English soc'
+                                          setTimeout(() => {
+                                             title.innerHTML = 'English soci'
+                                             setTimeout(() => {
+                                                title.innerHTML = 'English socie'
+                                                setTimeout(() => {
+                                                   title.innerHTML = 'English societ'
+                                                   setTimeout(() => {
+                                                      title.innerHTML = 'English society'
+                                                      setTimeout(() => {
+                                                         title.innerHTML = 'English society l'
+                                                         setTimeout(() => {
+                                                            title.innerHTML = 'English society lo'
+                                                            setTimeout(() => {
+                                                               title.innerHTML = 'English society log'
+                                                               setTimeout(() => {
+                                                                  title.innerHTML = 'English society logo'
+                                                               }, 40);
+                                                            }, 40);
+                                                         }, 40);
+                                                      }, 40);
+                                                   }, 40);
+                                                }, 40);
+                                             }, 40);
+                                          }, 40);
+                                       }, 40);
+                                    }, 40);
+                                 }, 40);
+                              }, 40);
+                           }, 40);
+                        }, 40);
+                     }, 40);
+                  }, 40);
+               }, 40);
+            }
+
+            const switchModal = () => {
+            const classes = title.classList.value.split(' ')
+               if(classes[1] === 'show'){
+                  return
+               }
+               disclaimer.classList.remove('show')
+               setTimeout(() => {
+                  main.classList.add('show')
+                  setTimeout(() => {
+                     footer.classList.add('show')
+                     setTimeout(() => {
+                        title.classList.add('show')
+                        setTimeout(() => {
+                           lowerLogo.classList.add('show')
+                           setTimeout(() => {
+                              titleAnimation()
+                              centerLogo.classList.add('show')
+                              hoverOverContainer.classList.add('show')
+                              setTimeout(() => {
+                                 schoolName.classList.add('show')
+                                 projectName.classList.add('show')
+                                 graduationHatBackground.classList.add('show')
+                                 handshakeBackground.classList.add('show')
+                                 bookBackground.classList.add('show')
+                                 setTimeout(() => {
+                                    graduationHat.classList.add('show')
+                                    handshake.classList.add('show')
+                                    book.classList.add('show')
+                                    setTimeout(() => {
+                                       centerLogoDetailsLine.classList.add('show')
+                                       graduationHatLine.classList.add('show')
+                                       handShakeLine.classList.add('show')
+                                       bookLine.classList.add('show')
+                                       setTimeout(() => {
+                                          centerLogoDetails.classList.add('show')
+                                          graduationHatSelection.classList.add('show')
+                                          handShakeSelection.classList.add('show')
+                                          bookSelection.classList.add('show')
+                                       }, 500);
+                                    }, 200);
+                                 }, 100);
+                              }, 200);
+                           }, 90);
+                        }, 90);
+                     }, 300);
+                  }, 20);
+               }, 100);
+            }
+
+            window.onkeydown = function(){
+               switchModal()
+            }
+
+            window.onscroll = function(){
+               switchModal()
+            }
+
+            window.onclick = function(){
+               switchModal()
+            }
+         }
+      </script>
+   </head>
+
+   <body>
+      <div class="disclaimer show" id="disclaimer">
+         <h1>DISCLAIMER:</h1>
+         <h2>This web page was not tested on phones. So I don't suggest you use your phone. You must use Chrome version 6.1 and above, Internet Explorer 11 should work but I make no promises.</h1>
+         <h3>Click / Press anywhere or press any key to continue.</h3>
+      </div>
+
+      <div class="main" id="main">
+         <div class="alerts" id="alerts"></div>
+         <h1 class="title" id="title"></h1>
+         <div class="hoverOverContainer" id="hoverOverContainer">
+            <button type="button" class="hoverOver disable" id="hoverOver">Enable hover over</button>
+         </div>
+         <div class="centerLogoDetails" id="centerLogoDetails">
+            <h5>Green is the meaning of harmony and is also the colour of my liking</h5>
+         </div>
+         <div class="centerLogoDetailsLine" id="centerLogoDetailsLine">
+            <hr>
+         </div>
+         <div class="centerLogo hoverOverActive" id="centerLogo">
+            <img src="https://i.imgur.com/fHm46R2.png" alt="Center logo template">
+         </div>
+         <div class="projectName" id="projectName">
+            <img src="https://i.imgur.com/oncldpu.png" alt="Project name template">
+         </div>
+         <div class="graduationHatBackground" id="graduationHatBackground">
+            <img src="https://i.imgur.com/0MCFdU2.png" alt="Graduation hat background template">
+         </div>
+         <div class="graduationHatSelection" id="graduationHatSelection">
+            <h5>Graduation hat is to represent that you have achived something. The red is to say that determination.</h5>
+         </div>
+         <div class="graduationHatLine" id="graduationHatLine">
+            <hr>
+         </div>
+         <div class="graduationHat" id="graduationHat">
+            <img src="https://i.imgur.com/d2DF3Fg.png" alt="Graduation hat template">
+         </div>
+         <div class="handshakeBackground" id="handshakeBackground">
+            <img src="https://i.imgur.com/gr3zYjn.png" alt="Handshake background template">
+         </div>
+         <div class="handShakeSelection" id="handShakeSelection">
+            <h5>The handshake is working hand in hand. While the blue means trustworthy.</h5>
+         </div>
+         <div class="handShakeLine" id="handShakeLine">
+            <hr>
+         </div>
+         <div class="handshake" id="handshake">
+            <img src="https://i.imgur.com/gJFhDBW.png" alt="Handshake template">
+         </div>
+         <div class="bookBackground" id="bookBackground">
+            <img src="https://i.imgur.com/AFJLXVi.png" alt="Book background template">
+         </div>
+         <div class="bookSelection" id="bookSelection">
+            <h5>The book is say that you are filled with intellect. Where the yellow is to say the same thing.</h5>
+         </div>
+         <div class="bookLine" id="bookLine">
+            <hr>
+         </div>
+         <div class="book" id="book">
+            <img src="https://i.imgur.com/MmuYtlQ.png" alt="Book template">
+         </div>
+         <div class="lowerLogo hoverOverActive" id="lowerLogo">
+            <img src="https://i.imgur.com/zN3nhb4.png" alt="Lower logo template">
+         </div>
+         <div class="schoolName hoverOverActive" id="schoolName">
+            <img src="https://i.imgur.com/9OsmHNj.png" alt="School name template">
+         </div>
+      </div>
+      <a class="footerLink" href="https://github.com/JoshuaLimKarMin/English-society-logo"><div class="footer" id="footer">
+         <h6>Project name: HTML / CSS English society logo</h6>
+         <!-- P = Proper first completed project project (16 / June / 2021) -->
+         <h6>Project code: 1606-HTML/CSS-P0001</h6>
+      </div></a>
+   </body>
+</html>
