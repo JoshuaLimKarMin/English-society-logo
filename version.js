@@ -7,7 +7,5 @@ window.onload = function(){
       updateBlock.classList.add('show')
       updateConfirmButton.setAttribute('href', "https://github.com/JoshuaLimKarMin/English-society-logo/archive/refs/heads/current.zip")
    }
-
-   console.log(document.getElementsByTagName('script')[0])
    main()
 } 
