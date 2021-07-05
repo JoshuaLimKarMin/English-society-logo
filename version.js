@@ -3,7 +3,7 @@ window.onload = function(){
    const updateBlock = document.getElementById('updateBlock')
    const version = document.getElementById('version')
 
-   if(version.classList.value.split(' ')[1] < 2){
+   if(version.classList.value.split(' ')[1] < 3){
       updateBlock.classList.add('show')
       updateConfirmButton.setAttribute('href', "https://github.com/JoshuaLimKarMin/English-society-logo/archive/refs/heads/current.zip")
    }
