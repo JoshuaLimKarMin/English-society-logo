@@ -11,6 +11,118 @@
             color:rgb(230, 230, 230)
          }
 
+         .startupLoading{
+            position: fixed;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+         }
+
+         .startupLoading.show{
+            z-index: 5;
+            opacity: 1
+         }
+
+         .startupLoading div{
+            position: fixed;
+            bottom: 0;
+         }
+
+         .updateBlock{
+            position: fixed;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.4s, top 0.2s;
+         }
+
+         .updateBlock.show{
+            top: 0;
+            opacity: 1
+         }
+
+         .updateBlock div{
+            position: fixed;
+            text-align: center;
+            background-color: rgb(180, 180, 180);
+            color: rgb(0, 0, 0);
+            padding: 0 10px 10px 10px;
+            border-radius: 10%;
+            margin-top: 100%;
+            width: 20%;
+            left: 39%;
+            transition: margin-top 0.8s;
+         }
+
+         .updateBlock.show div{
+            margin-top: 20px
+         }
+
+         .updateBlock a{
+            background-color: rgb(0, 130, 250);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            margin: 0 3px 0 3px;
+            padding: 0 5px 0 5px
+         }
+
+         .info{
+            position: fixed;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgb(250, 250, 250);
+            width: 310px;
+            height: 50px;
+            left: -500px;
+            transition: left 0.5s
+         }
+
+         .info.show{
+            left: 0
+         }
+
+         .info h4{
+            margin-top: 15px;
+            margin-left: 3px;
+            background-color: rgb(0, 150, 250);
+            text-align: center;
+            border-radius: 100%;
+            width: 19px
+         }
+
+         .info h6{
+            margin-top: -48px;
+            margin-left: 30px
+         }
+
+         .lowerInfo{
+            position: fixed;
+            z-index: 5;
+            height: 30px;
+            bottom: -29px;
+            right: 0;
+            padding-left: 5px;
+            background-color: rgb(0, 0, 0);
+            transition: bottom 0.3s;
+         }
+
+         .lowerInfo.show{
+            bottom: 0
+         }
+
+         .lowerInfo h6{
+            margin-top: 10px
+         }
+
          .disclaimer{
             position: fixed;
             z-index: 1;
@@ -38,7 +150,7 @@
          }
 
          .disclaimer h1{
-            padding-top: 20%
+            padding-top: 16%
          }
 
          .alerts{
@@ -113,6 +225,8 @@
          .title{
             font-size: 0%;
             padding-top: 1%;
+            top: auto;
+            left: auto;
             transition: font-size 0.8s, padding-top 0.8s;
          }
 
@@ -124,15 +238,21 @@
          .centerLogo{
             z-index: 2;
             width: 0%;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 10%;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .centerLogo.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: 0
+         }
+
+         .centerLogo.miniLogo{
+            margin-left: 0;
+            margin-top: -1.5%;
+            width: 10%
          }
 
          .centerLogoDetailsLine{
@@ -140,7 +260,7 @@
             z-index: 5;
             width: 100%;
             margin-left: 16%;
-            margin-top: 5%;;
+            margin-top: 5%;
             opacity: 0;
             transition: opacity 0.8s
          }
@@ -156,22 +276,46 @@
             background: rgba(250, 250, 250, 0.8)
          }
 
-         .centerLogoDetails{
+         .centerLogoDetailsSelection{
             position: fixed;
             z-index: 5;
             margin-left: 73%;
-            border: 2px solid rgb(250, 250, 250);
+            border: 2px solid rgba(250, 250, 250, 0.8);
             margin-top: 3%;
             opacity: 0;
             transition: opacity 0.8s
          }
 
-         .centerLogoDetails.show{
+         .centerLogoDetailsSelection.show{
             opacity: 1
          }
 
          .centerLogo img{
             width: 30%
+         }
+
+         .clubName{
+            z-index: 3;
+            width: 0;
+            margin-left: 50%;
+            margin-top: 0;
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
+         }
+
+         .clubName.show{
+            width: 100%;
+            margin-left: 0;
+            margin-top: -29.5%
+         }
+
+         .clubName.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -3.7%
+         }
+
+         .clubName img{
+            width: 16%
          }
 
          .graduationHatSelection{
@@ -180,7 +324,7 @@
             width: 25%;
             margin-left: 8.3%;
             margin-top: -7%;
-            border: 2px solid rgb(250, 250, 250);
+            border: 2px solid rgba(250, 250, 250, 0.8);
             opacity: 0;
             transition: opacity 0.8s
          }
@@ -210,36 +354,24 @@
             background: rgba(250, 250, 250, 0.8)
          }
 
-         .projectName{
-            z-index: 3;
-            width: 0;
-            padding-left: 50%;
-            margin-top: 0;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
-         }
-
-         .projectName.show{
-            width: 100%;
-            padding-left: 0;
-            margin-top: -29.5%
-         }
-
-         .projectName img{
-            width: 16%
-         }
-
          .graduationHatBackground{
-            z-index: 3;
+            z-index: 4;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 0;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .graduationHatBackground.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: -2%
+         }
+
+         .graduationHatBackground.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -0.65%
          }
 
          .graduationHatBackground img{
@@ -247,17 +379,23 @@
          }
 
          .graduationHat{
-            z-index: 4;
+            z-index: 5;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 0;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .graduationHat.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: -6.5%;
+         }
+
+         .graduationHat.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -1.25%
          }
 
          .graduationHat img{
@@ -265,17 +403,23 @@
          }
 
          .handshakeBackground{
-            z-index: 3;
+            z-index: 4;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: -0.5;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .handshakeBackground.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: 0.5%
+         }
+
+         .handshakeBackground.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -0.3%
          }
 
          .handshakeBackground img{
@@ -287,7 +431,7 @@
             z-index: 5;
             margin-left: 79%;
             margin-top: -7%;
-            border: 2px solid rgb(250, 250, 250);
+            border: 2px solid rgba(250, 250, 250, 0.8);
             opacity: 0;
             transition: opacity 0.8s
          }
@@ -318,17 +462,23 @@
          }
 
          .handshake{
-            z-index: 4;
+            z-index: 5;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: -7%;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .handshake.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: -7%
+         }
+
+         .handshake.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -1.22%
          }
 
          .handshake img{
@@ -336,17 +486,23 @@
          }
 
          .bookBackground{
-            z-index: 3;
+            z-index: 4;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 0;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .bookBackground.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: 0
+         }
+
+         .bookBackground.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -0.194%
          }
 
          .bookBackground img{
@@ -359,7 +515,7 @@
             width: 15%;
             margin-left: 6.9%;
             margin-top: -8%;
-            border: 2px solid rgb(250, 250, 250);
+            border: 2px solid rgba(250, 250, 250, 0.8);
             opacity: 0;
             transition: opacity 0.8s
          }
@@ -390,17 +546,23 @@
          }
 
          .book{
-            z-index: 4;
+            z-index: 5;
             width: 0;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: -10%;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
          
          .book.show{
             width: 100%;
-            padding-left: 0;
+            margin-left: 0;
             margin-top: -10%;
+         }
+
+         .book.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -1.4%
          }
 
          .book img{
@@ -408,16 +570,23 @@
          }
 
          .lowerLogo{
+            z-index: 2;
             width: 0%;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 5%;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .lowerLogo.show{
             margin-top: -16%;
-            padding-left: 0;
+            margin-left: 0;
             width: 100%
+         }
+
+         .lowerLogo.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -1.6%
          }
 
          .lowerLogo img{
@@ -427,15 +596,21 @@
          .schoolName{
             z-index: 3;
             width: 0%;
-            padding-left: 50%;
+            margin-left: 50%;
             margin-top: 0;
-            transition: width 0.8s, padding-left 0.8s, margin-top 0.8s
+            transition: width 0.8s, margin-left 0.8s, margin-top 0.8s
          }
 
          .schoolName.show{
             width: 100%;
             margin-top: -26.3%;
-            padding-left: 0
+            margin-left: 0
+         }
+
+         .schoolName.miniLogo{
+            width: 10%;
+            margin-left: 0;
+            margin-top: -2.82%
          }
 
          .schoolName img{
@@ -444,7 +619,7 @@
 
          .footer{
             position: fixed;
-            z-index: 1;
+            z-index: 5;
             font-size: 56%; /* Note: Heading 6 minimum size is 56% */
             cursor: default;
             bottom: 0;
@@ -467,187 +642,937 @@
          .footer.show{
             opacity: 0.5
          }
+
+         .slideShow{
+            position: fixed;
+            overflow: hidden;
+            text-align: center;
+            top: 100%;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 2;
+            margin-left: 25%;
+            transition: top 0.8s;
+         }
+
+         .slideShow.show{
+            top: 0
+         }
+
+         .slideShowCenterLogo{
+            margin-left: 30%;
+            width: 40%;
+            opacity: 0;
+            transition: opacity 0.5s;
+         }
+
+         .slideShowCenterLogo.show{
+            opacity: 1
+         }
+         
+         .slideShowCenterLogo img{
+            width: 100%
+         }
+
+         .slideShowLowerLogo{
+            position: fixed;
+            margin-left: 9%;
+            width: 32%;
+            margin-top: -11.5%;
+            opacity: 0;
+            transition: opacity 0.5s;
+         }
+
+         .slideShowLowerLogo.show{
+            opacity: 1
+         }
+
+         .slideShowLowerLogo img{
+            width: 100%
+         }
+         
+         .slideShowClubName{
+            position: fixed;
+            z-index: 3;
+            margin-left: 19.5%;
+            width: 11%;
+            margin-top: -19.5%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowClubName.show{
+            opacity: 1
+         }
+
+         .slideShowClubName img{
+            width: 100%
+         }
+         
+         .slideShowSchoolName{
+            position: fixed;
+            width: 30%;
+            margin-left: 10%;
+            margin-top: -11%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowSchoolName.show{
+            opacity: 1
+         }
+
+         .slideShowSchoolName img{
+            width: 100%
+         }
+
+         .slideShowGraduationHatBackground{
+            position: fixed;
+            z-index: 4;
+            width: 6%;
+            margin-left: 22%;
+            margin-top: -18%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowGraduationHatBackground.show{
+            opacity: 1
+         }
+
+         .slideShowGraduationHatBackground img{
+            width: 100%
+         }
+
+         .slideShowGraduationHat{
+            position: fixed;
+            z-index: 5;
+            width: 4.5%;
+            margin-left: 23%;
+            margin-top: -17.3%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowGraduationHat.show{
+            opacity: 1
+         }
+
+         .slideShowGraduationHat img{
+            width: 100%
+         }
+
+         .slideShowHandshakeBackground{
+            position: fixed;
+            z-index: 4;
+            width: 16%;
+            margin-left: 17%;
+            margin-top: -13.5%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowHandshakeBackground.show{
+            opacity: 1
+         }
+
+         .slideShowHandshakeBackground img{
+            width: 100%
+         }
+
+         .slideShowHandShake{
+            position: fixed;
+            z-index: 5;
+            width: 13%;
+            margin-left: 18.3%;
+            margin-top: -12%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowHandShake.show{
+            opacity: 1
+         }
+
+         .slideShowHandShake img{
+            width: 100%
+         }
+
+         .SlideShowBookBackground{
+            position: fixed;
+            z-index: 4;
+            width: 11%;
+            margin-left: 19.5%;
+            margin-top: -6.6%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .SlideShowBookBackground.show{
+            opacity: 1
+         }
+
+         .SlideShowBookBackground img{
+            width: 100%
+         }
+
+         .slideShowBook{
+            position: fixed;
+            z-index: 5;
+            width: 7.5%;
+            margin-left: 21.5%;
+            margin-top: -6.5%;
+            opacity: 0;
+            transition: opacity 0.5s
+         }
+
+         .slideShowBook.show{
+            opacity: 1
+         }
+
+         .slideShowBook img{
+            width: 100%
+         }
+
+         .slidesText{
+            opacity: 0;
+            transition: 0.3s
+         }
+
+         .slidesText.show{
+            opacity: 1
+         }
+
+         .slidesText hr{
+            border: 2px solid rgb(250, 250, 250);
+            background-color: rgb(250, 250, 250);
+         }
+
+         .slidesText h2{
+            margin-top: 15%
+         }
+
+         .credits{
+            z-index: 3;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            margin-top: 50%;
+            transition: margin-top 10s
+         }
+
+         .credits.show{
+            margin-top: -70%
+         }
+
+         .credits.closing{
+            margin-top: -300%
+         }
+
+         .credits img{
+            width: 10%
+         }
+
+         .credits hr{
+            border: 1px solid rgb(250, 250, 250);
+            background-color: rgb(250, 250, 250)
+         }
+
+         .credits br{
+            padding-bottom: 10px
+         }
+
+         .githubLink{
+            left: 0
+         }
+
+         .githubLink img{
+            width: 5%;
+         }
+
+         .githubLink h6{
+            margin-top: 0
+         }
       </style>
       <script>
          /* For any website developers wondering about the JavaScript I'm using:
-            Yup, you didn't see wrongly. This can't be loaded in old IE because this is ES6
-          */
-         window.onload = function(){
-            const disclaimer = document.getElementById('disclaimer')
-            const main = document.getElementById('main')
-            const footer = document.getElementById('footer')
-            const title = document.getElementById('title')
-            const lowerLogo = document.getElementById('lowerLogo')
-            const centerLogo = document.getElementById('centerLogo')
-            const hoverOverContainer = document.getElementById('hoverOverContainer')
-            const hoverOver = document.getElementById('hoverOver')
-            const alerts = document.getElementById('alerts')
-            const schoolName = document.getElementById('schoolName')
-            const projectName = document.getElementById('projectName')
+            Yup, you didn't see wrongly. This can't be loaded in old IE because this is ES6.
+         */
+         var main = () => {
+            const startupLoading = document.getElementById('startupLoading')
+
+            startupLoading.classList.remove('show')
+
+            const info = document.getElementById('info')
+
+            setTimeout(() => {
+               info.classList.add('show')
+
+               setTimeout(() => {
+                  info.classList.remove('show')
+               }, 3000);
+            }, 300);
+
+            const centerLogoDetailsSelection = document.getElementById('centerLogoDetailsSelection')
             const graduationHatBackground = document.getElementById('graduationHatBackground')
-            const graduationHat = document.getElementById('graduationHat')
-            const handshakeBackground = document.getElementById('handshakeBackground')
-            const handshake = document.getElementById('handshake')
-            const bookBackground = document.getElementById('bookBackground')
-            const book = document.getElementById('book')
-            const centerLogoDetails = document.getElementById('centerLogoDetails')
-            const centerLogoDetailsLine = document.getElementById('centerLogoDetailsLine')
             const graduationHatSelection = document.getElementById('graduationHatSelection')
-            const graduationHatLine = document.getElementById('graduationHatLine')
+            const centerLogoDetailsLine = document.getElementById('centerLogoDetailsLine')
+            const handshakeBackground = document.getElementById('handshakeBackground')
             const handShakeSelection = document.getElementById('handShakeSelection')
+            const hoverOverContainer = document.getElementById('hoverOverContainer')
+            const graduationHatLine = document.getElementById('graduationHatLine')
+            const bookBackground = document.getElementById('bookBackground')
+            const graduationHat = document.getElementById('graduationHat')
             const handShakeLine = document.getElementById('handShakeLine')
             const bookSelection = document.getElementById('bookSelection')
+            const updateCancel = document.getElementById('updateCancel')
+            const clubName = document.getElementById('clubName')
+            const updateBlock = document.getElementById('updateBlock')
+            const disclaimer = document.getElementById('disclaimer')
+            const centerLogo = document.getElementById('centerLogo')
+            const schoolName = document.getElementById('schoolName')
+            const lowerLogo = document.getElementById('lowerLogo')
+            const hoverOver = document.getElementById('hoverOver')
+            const handshake = document.getElementById('handshake')
             const bookLine = document.getElementById('bookLine')
+            const footer = document.getElementById('footer')
+            const alerts = document.getElementById('alerts')
+            const title = document.getElementById('title')
+            const main = document.getElementById('main')
+            const book = document.getElementById('book')
+            const slideShow = document.getElementById('slideShow')
+            const lowerInfo = document.getElementById('lowerInfo')
+            const infoText = document.getElementById('infoText')
+
+            let hoverOverIsActive = false
+            let allowSideFeatures = false
+            let modelSwitchTriggered = false
+            let allowContinue = true
+
+            const hideAllInfo = (callback) => {
+               centerLogoDetailsSelection.classList.remove('show')
+
+               setTimeout(() => {
+                  centerLogoDetailsLine.classList.remove('show')
+
+                  setTimeout(() => {
+                     graduationHatSelection.classList.remove('show')
+
+                     setTimeout(() => {
+                        graduationHatLine.classList.remove('show')
+
+                        setTimeout(() => {
+                           handShakeSelection.classList.remove('show')
+
+                           setTimeout(() => {
+                              handShakeLine.classList.remove('show')
+
+                              setTimeout(() => {
+                                 bookSelection.classList.remove('show')
+
+                                 setTimeout(() => {
+                                    bookLine.classList.remove('show')
+
+                                 }, 150);
+                              }, 150);
+                           }, 150);
+                        }, 150);
+                     }, 150);
+                  }, 150);
+               }, 150);
+            }
+
+            const showAllInfo = () => {
+               centerLogoDetailsLine.classList.add('show')
+
+               setTimeout(() => {
+                  centerLogoDetailsSelection.classList.add('show')
+
+                  setTimeout(() => {
+                     graduationHatLine.classList.add('show')
+
+                     setTimeout(() => {
+                        graduationHatSelection.classList.add('show')
+
+                        setTimeout(() => {
+                           handShakeLine.classList.add('show')
+
+                           setTimeout(() => {
+                              handShakeSelection.classList.add('show')
+
+                              setTimeout(() => {
+                                 bookLine.classList.add('show')
+
+                                 setTimeout(() => {
+                                    bookSelection.classList.add('show')
+
+                                 }, 200);
+                              }, 200);
+                           }, 200);
+                        }, 200);
+                     }, 200);
+                  }, 200);
+               }, 200);
+            }
 
             hoverOver.onclick = function(){
-               const hoverOverState = hoverOver.classList.value.split(' ')[1]
-               alerts.classList.add('show')
-               alerts.innerHTML = 'Error: hover over is not ready'
+               infoText.innerHTML = 'This feature has been disabled due to issues that arose during development. This fix will require a complete rewrite for the arrangement of all elements.'
+               info.classList.add('show')
+
                setTimeout(() => {
-                  alerts.classList.remove('show')
-               }, 10000);
+                  return info.classList.remove('show')
 
-               if(hoverOverState === 'enable'){
-                  hoverOver.classList.remove('enable')
-                  hoverOver.classList.add('disable')
-                  hoverOver.innerHTML = 'Enable hover over'
-                  centerLogo.classList.remove('hoverOverActive')
-                  lowerLogo.classList.remove('hoverOverActive')
+               }, 10000)
 
-               }else if(hoverOverState === 'disable'){
-                  hoverOver.classList.remove('disable')
-                  hoverOver.classList.add('enable')
-                  hoverOver.innerHTML = 'Disable hover over'
-                  centerLogo.classList.add('hoverOverActive')
-                  lowerLogo.classList.add('hoverOverActive')
+               let debugMode = false
+
+               if(debugMode === true){
+                  const hoverOverState = hoverOver.classList.value.split(' ')[1]
+                  alerts.classList.add('show')
+                  alerts.innerHTML = 'Error: hover over is not ready'
+                  setTimeout(() => {
+                     alerts.classList.remove('show')
+                  }, 10000);
+
+                  lowerInfo.classList.add('show')
+
+                  if(hoverOverState === 'enable'){
+                     hoverOverIsActive = false
+
+                     hoverOver.classList.remove('enable')
+                     hoverOver.classList.add('disable')
+                     hoverOver.innerHTML = 'Enable hover over'
+
+                     showAllInfo()
+
+                     centerLogoDetailsSelection.classList.remove('hoverOverActive')
+                     graduationHatSelection.classList.remove('hoverOverActive')
+                     centerLogoDetailsLine.classList.remove('hoverOverActive')
+                     handShakeSelection.classList.remove('hoverOverActive')
+                     graduationHatLine.classList.remove('hoverOverActive')
+                     handShakeLine.classList.remove('hoverOverActive')
+                     bookSelection.classList.remove('hoverOverActive')
+                     bookLine.classList.remove('hoverOverActive')
+
+                  }else if(hoverOverState === 'disable'){
+                     hoverOverIsActive = true
+
+                     hoverOver.classList.remove('disable')
+                     hoverOver.classList.add('enable')
+                     hoverOver.innerHTML = 'Disable hover over'
+                     
+                     hideAllInfo()
+   
+                     centerLogoDetailsSelection.classList.add('hoverOverActive')
+                     graduationHatSelection.classList.add('hoverOverActive')
+                     centerLogoDetailsLine.classList.add('hoverOverActive')
+                     handShakeSelection.classList.add('hoverOverActive')
+                     graduationHatLine.classList.add('hoverOverActive')
+                     handShakeLine.classList.add('hoverOverActive')
+                     bookSelection.classList.add('hoverOverActive')
+                     bookLine.classList.add('hoverOverActive')
+                  }
+   
+                  setTimeout(() => {
+                     lowerInfo.classList.remove('show')
+
+                  }, 1800);
                }
             }
 
             const titleAnimation = () => {
-               // This is too repetitive. There's actually a better way to do this. Will be dealt with in the next version if I have time
-               title.innerHTML = 'E'
-               setTimeout(() => {
-                  title.innerHTML = 'En'
-                  setTimeout(() => {
-                     title.innerHTML = 'Eng'
+               const englishTextTemplete = 'English society logo'
+               const englishTextIndex = englishTextTemplete.split('')
+               let englishText = ''
+               let count = 0
+
+               const titleAnimate = () => {
+                  if(count < 20){
+                     englishText += englishTextIndex[count]
+
                      setTimeout(() => {
-                        title.innerHTML = 'Engl'
-                        setTimeout(() => {
-                           title.innerHTML = 'Engli'
-                           setTimeout(() => {
-                              title.innerHTML = 'Englis'
-                              setTimeout(() => {
-                                 title.innerHTML = 'English'
-                                 setTimeout(() => {
-                                    title.innerHTML = 'English s'
-                                    setTimeout(() => {
-                                       title.innerHTML = 'English so'
-                                       setTimeout(() => {
-                                          title.innerHTML = 'English soc'
-                                          setTimeout(() => {
-                                             title.innerHTML = 'English soci'
-                                             setTimeout(() => {
-                                                title.innerHTML = 'English socie'
-                                                setTimeout(() => {
-                                                   title.innerHTML = 'English societ'
-                                                   setTimeout(() => {
-                                                      title.innerHTML = 'English society'
-                                                      setTimeout(() => {
-                                                         title.innerHTML = 'English society l'
-                                                         setTimeout(() => {
-                                                            title.innerHTML = 'English society lo'
-                                                            setTimeout(() => {
-                                                               title.innerHTML = 'English society log'
-                                                               setTimeout(() => {
-                                                                  title.innerHTML = 'English society logo'
-                                                               }, 40);
-                                                            }, 40);
-                                                         }, 40);
-                                                      }, 40);
-                                                   }, 40);
-                                                }, 40);
-                                             }, 40);
-                                          }, 40);
-                                       }, 40);
-                                    }, 40);
-                                 }, 40);
-                              }, 40);
-                           }, 40);
-                        }, 40);
-                     }, 40);
-                  }, 40);
-               }, 40);
+                        title.innerHTML = englishText
+                        count++
+                        titleAnimate()
+                     }, 40)
+
+                  }else if(englishTextIndex[count] === ' '){
+                     count++
+                     titleAnimate()
+
+                  }
+               }
+
+               titleAnimate()
             }
 
             const switchModal = () => {
-            const classes = title.classList.value.split(' ')
+               modelSwitchTriggered = true
+               const classes = title.classList.value.split(' ')
+
                if(classes[1] === 'show'){
                   return
                }
+
+               lowerInfo.classList.add('show')
+
                disclaimer.classList.remove('show')
                setTimeout(() => {
                   main.classList.add('show')
+
                   setTimeout(() => {
                      footer.classList.add('show')
+
                      setTimeout(() => {
                         title.classList.add('show')
+
                         setTimeout(() => {
                            lowerLogo.classList.add('show')
+
                            setTimeout(() => {
-                              titleAnimation()
-                              centerLogo.classList.add('show')
                               hoverOverContainer.classList.add('show')
+                              centerLogo.classList.add('show')
+                              titleAnimation()
+
                               setTimeout(() => {
-                                 schoolName.classList.add('show')
-                                 projectName.classList.add('show')
                                  graduationHatBackground.classList.add('show')
                                  handshakeBackground.classList.add('show')
                                  bookBackground.classList.add('show')
+                                 clubName.classList.add('show')
+                                 schoolName.classList.add('show')
+
                                  setTimeout(() => {
                                     graduationHat.classList.add('show')
                                     handshake.classList.add('show')
                                     book.classList.add('show')
+                                    
                                     setTimeout(() => {
                                        centerLogoDetailsLine.classList.add('show')
                                        graduationHatLine.classList.add('show')
                                        handShakeLine.classList.add('show')
                                        bookLine.classList.add('show')
+
                                        setTimeout(() => {
-                                          centerLogoDetails.classList.add('show')
+                                          centerLogoDetailsSelection.classList.add('show')
                                           graduationHatSelection.classList.add('show')
                                           handShakeSelection.classList.add('show')
                                           bookSelection.classList.add('show')
-                                       }, 500);
-                                    }, 200);
-                                 }, 100);
-                              }, 200);
-                           }, 90);
-                        }, 90);
-                     }, 300);
-                  }, 20);
-               }, 100);
+
+                                          lowerInfo.classList.remove('show')
+
+                                          allowSideFeatures = true
+
+                                       }, 500)
+                                    }, 200)
+                                 }, 100)
+                              }, 200)
+                           }, 90)
+                        }, 90)
+                     }, 300)
+                  }, 20)
+               }, 100)
             }
 
-            window.onkeydown = function(){
-               switchModal()
+            const slideShowCenterLogo = document.getElementById('slideShowCenterLogo')
+            const slideShowLowerLogo = document.getElementById('slideShowLowerLogo')
+            const slideShowClubName = document.getElementById('slideShowClubName')
+            const slideShowSchoolName = document.getElementById('slideShowSchoolName')
+            const slideShowGraduationHatBackground = document.getElementById('slideShowGraduationHatBackground')
+            const slideShowGraduationHat = document.getElementById('slideShowGraduationHat')
+            const slideShowHandShakeBackground = document.getElementById('slideShowHandShakeBackground')
+            const slideShowHandShake = document.getElementById('slideShowHandShake')
+            const slideShowBookBackground = document.getElementById('slideShowBookBackground')
+            const slideShowBook = document.getElementById('slideShowBook')
+            const slidesText = document.getElementById('slidesText')
+            const partName = document.getElementById('partName')
+            const partDetails = document.getElementById('partDetails')
+            const credits = document.getElementById('credits')
+
+            let secret = ''
+
+            let ongoingSlides = false
+
+            let currentSlideNumber = 0
+
+            window.onkeydown = function(key){
+               if(allowContinue === false)return
+
+               const classManager = (mode, className) => {
+                  if(mode === 'add'){
+                     centerLogo.classList.add(className)
+                     clubName.classList.add(className)
+                     graduationHat.classList.add(className)
+                     graduationHatBackground.classList.add(className)
+                     handshake.classList.add(className)
+                     handshakeBackground.classList.add(className)
+                     book.classList.add(className)
+                     bookBackground.classList.add(className)
+                     lowerLogo.classList.add(className)
+                     schoolName.classList.add(className)
+
+                  }else if(mode === 'remove'){
+                     centerLogo.classList.remove(className)
+                     clubName.classList.remove(className)
+                     graduationHat.classList.remove(className)
+                     graduationHatBackground.classList.remove(className)
+                     handshake.classList.remove(className)
+                     handshakeBackground.classList.remove(className)
+                     book.classList.remove(className)
+                     bookBackground.classList.remove(className)
+                     lowerLogo.classList.remove(className)
+                     schoolName.classList.remove(className)
+
+                  }
+               }
+
+               if(key.key === 's' && secret === '')secret += key.key
+               else if(key.key === 'l' && secret === 's')secret += key.key
+               else if(key.key === 'i' && secret === 'sl')secret += key.key
+               else if(key.key === 'd' && secret === 'sli')secret += key.key
+               else if(key.key === 'e' && secret === 'slid')secret += key.key
+               else if(key.key === 's' && secret === 'slide'){
+                  const strinkingLogoAndFirstSlide = () => {
+                     info.classList.remove('show')
+                     title.classList.remove('show')
+
+                     setTimeout(() => {
+                        infoText.innerHTML = 'Please keep in mind that you can press any keys to move to the next slide. Clicking will not do anything.'
+                        info.classList.add('show')
+
+                        classManager('add', 'miniLogo')
+
+                        setTimeout(() => {
+                           slideShow.classList.add('show')
+
+                           setTimeout(() => {
+                              slidesText.classList.add('show')
+
+                           }, 300);
+
+                           setTimeout(() => {
+                              allowContinue = true
+
+                              lowerInfo.classList.remove('show')
+
+                              setTimeout(() => {
+                                 info.classList.remove('show')
+
+                              }, 2000);
+                           }, 800);
+                        }, 300);
+                     }, 500);
+                  }
+
+                  if(allowSideFeatures === true && ongoingSlides === false){
+                     allowContinue = false
+                     secret = ''
+                     ongoingSlides = true
+                     lowerInfo.classList.add('show')
+
+                     hoverOverContainer.classList.remove('show')
+
+                     setTimeout(() => {
+                        footer.classList.remove('show')
+
+                        setTimeout(() => {
+                           if(hoverOverIsActive === false){
+                              hideAllInfo()
+
+                              setTimeout(() => {
+                                 strinkingLogoAndFirstSlide()
+                                 currentSlideNumber++
+
+                              }, 1000);
+
+                           }else{
+                              strinkingLogoAndFirstSlide()
+
+                           }
+                        }, 300);
+                     }, 300);
+                  }
+
+               }else{
+                  secret = ''
+
+               }
+
+               if(currentSlideNumber === 1){
+                  lowerInfo.classList.add('show')
+                  allowContinue = false
+                  slidesText.classList.remove('show')
+
+                  setTimeout(() => {
+                     partName.innerHTML = 'Club name'
+                     partDetails.innerHTML = 'Specifies the name of the club that the students has chosen to participate.'
+
+                     slideShowClubName.classList.add('show')
+
+                     setTimeout(() => {
+                        slidesText.classList.add('show')
+
+                        setTimeout(() => {
+                           lowerInfo.classList.remove('show')
+                           currentSlideNumber++
+
+                           allowContinue = true
+
+                        }, 500);
+                     }, 500);
+                  }, 500);
+
+               }else if(currentSlideNumber === 2){
+                  lowerInfo.classList.add('show')
+                  allowContinue = false
+                  slidesText.classList.remove('show')
+
+                  setTimeout(() => {
+                     partName.innerHTML = 'School name'
+                     partDetails.innerHTML = 'Identifies the school that the student is in.'
+
+                     slideShowSchoolName.classList.add('show')
+
+                     setTimeout(() => {
+                        slidesText.classList.add('show')
+
+                        setTimeout(() => {
+                           lowerInfo.classList.remove('show')
+                           currentSlideNumber++
+
+                           allowContinue = true
+
+                        }, 500);
+                     }, 500);
+                  }, 500);
+
+               }else if(currentSlideNumber === 3){
+                  lowerInfo.classList.add('show')
+                  allowContinue = false
+                  slidesText.classList.remove('show')
+
+                  setTimeout(() => {
+                     partName.innerHTML = 'Graduation hat and red'
+                     partDetails.innerHTML = 'The red and graduation hat is a combination for determination to do something till they achive the target that they have been dreaming of reaching. '
+
+                     slideShowGraduationHatBackground.classList.add('show')
+                     slideShowGraduationHat.classList.add('show')
+
+                     setTimeout(() => {
+                        slidesText.classList.add('show')
+
+                        setTimeout(() => {
+                           lowerInfo.classList.remove('show')
+                           currentSlideNumber++
+
+                           allowContinue = true
+
+                        }, 500);
+                     }, 500);
+                  }, 500);
+
+               }else if(currentSlideNumber === 4){
+                  lowerInfo.classList.add('show')
+                  allowContinue = false
+                  slidesText.classList.remove('show')
+
+                  setTimeout(() => {
+                     partName.innerHTML = 'Handshake and blue'
+                     partDetails.innerHTML = 'The combination for a handshake and blue colour is working hand in hand with people that is trustable.'
+
+                     slideShowHandShakeBackground.classList.add('show')
+                     slideShowHandShake.classList.add('show')
+
+                     setTimeout(() => {
+                        slidesText.classList.add('show')
+
+                        setTimeout(() => {
+                           lowerInfo.classList.remove('show')
+                           currentSlideNumber++
+
+                           allowContinue = true
+
+                        }, 500);
+                     }, 500);
+                  }, 500);
+
+               }else if(currentSlideNumber === 5){
+                  lowerInfo.classList.add('show')
+                  allowContinue = false
+                  slidesText.classList.remove('show')
+
+                  setTimeout(() => {
+                     partName.innerHTML = 'Book and yellow'
+                     partDetails.innerHTML = 'The book and colour are both with the same meaning because I never thought about this part. Either ways, they are suppose to mean intelligent.'
+
+                     slideShowBookBackground.classList.add('show')
+                     slideShowBook.classList.add('show')
+
+                     setTimeout(() => {
+                        slidesText.classList.add('show')
+
+                        setTimeout(() => {
+                           lowerInfo.classList.remove('show')
+                           currentSlideNumber++
+
+                           allowContinue = true
+
+                        }, 500);
+                     }, 500);
+                  }, 500);
+
+               }else if(currentSlideNumber === 6){
+                  slideShowCenterLogo.classList.remove('show')
+                  slideShowLowerLogo.classList.remove('show')
+                  slideShowClubName.classList.remove('show')
+                  slideShowSchoolName.classList.remove('show')
+                  slideShowGraduationHatBackground.classList.remove('show')
+                  slideShowGraduationHat.classList.remove('show')
+                  slideShowHandShakeBackground.classList.remove('show')
+                  slideShowHandShake.classList.remove('show')
+                  slideShowBookBackground.classList.remove('show')
+                  slideShowBook.classList.remove('show')
+                  slidesText.classList.remove('show')
+                  partName.classList.remove('show')
+                  partDetails.classList.remove('show')
+
+                  setTimeout(() => {
+                     classManager('remove', 'miniLogo')
+
+                     setTimeout(() => {
+                        classManager('remove', 'show')
+
+                        credits.classList.add('show')
+
+                        setTimeout(() => {
+                           credits.classList.remove('show')
+                           credits.classList.add('closing')
+
+                        }, 30000);
+                     }, 1000);
+                  }, 800);
+               }
+
+               if(updateBlock.classList.value.split(' ')[1] !== 'show' && ongoingSlides === false && modelSwitchTriggered === false){
+                  switchModal()
+
+               }
             }
 
             window.onscroll = function(){
-               switchModal()
+               if(updateBlock.classList.value.split(' ')[1] !== 'show' && ongoingSlides === false && modelSwitchTriggered === false){
+                  switchModal()
+
+               }
             }
 
             window.onclick = function(){
-               switchModal()
+               if(updateBlock.classList.value.split(' ')[1] !== 'show' && ongoingSlides === false){
+                  if(modelSwitchTriggered === false){
+                     switchModal()
+
+                  }
+               }
+            }
+
+            centerLogo.onmouseover = function(){
+               if(hoverOverIsActive === true){
+                  centerLogoDetailsSelection.classList.add('show')
+                  centerLogoDetailsLine.classList.add('show')
+               }
+            }
+
+            graduationHat.onmouseover = function(){
+               if(hoverOverIsActive === true){
+                  graduationHatSelection.classList.add('show')
+                  graduationHatLine.classList.add('show')
+               }
+            }
+
+            handshake.onmouseover = function(){
+               if(hoverOverIsActive === true){
+                  handShakeSelection.classList.add('show')
+                  handShakeLine.classList.add('show')
+               }
+            }
+
+            book.onmouseover = function(){
+               if(hoverOverIsActive === true){
+                  bookSelection.classList.add('show')
+                  bookLine.classList.add('show')
+               }
+            }
+
+            centerLogo.onmouseout = function(){
+               if(hoverOverIsActive === true){
+                  centerLogoDetailsSelection.classList.remove('show')
+                  centerLogoDetailsLine.classList.remove('show')
+               }
+            }
+
+            graduationHat.onmouseout = function(){
+               if(hoverOverIsActive === true){
+                  graduationHatSelection.classList.remove('show')
+                  graduationHatLine.classList.remove('show')
+               }
+            }
+
+            handshake.onmouseout = function(){
+               if(hoverOverIsActive === true){
+                  handShakeSelection.classList.remove('show')
+                  handShakeLine.classList.remove('show')
+               }
+            }
+
+            book.onmouseover = function(){
+               if(hoverOverIsActive === true){
+                  bookSelection.classList.remove('show')
+                  bookLine.classList.remove('show')
+               }
             }
          }
+
+         const script = document.createElement('script')
+         script.type = 'text/javascript'
+         script.src = 'https://www.combinatronics.com/JoshuaLimKarMin/English-society-logo/update/version.js'
+         document.getElementsByTagName('script')[0].appendChild(script)
       </script>
    </head>
 
    <body>
+      <div class="version 2" id="version"></div>
+      <div class="startupLoading show" id="startupLoading">
+         <div>
+            <h5>Waiting for external JavaScript...</h5>
+         </div>
+      </div>
+      <div class="updateBlock" id="updateBlock">
+         <div>
+            <h3>Update available</h3>
+
+            <br>
+
+            <a class="updateCancel" id="updateCancel" onclick="document.getElementById('updateBlock').classList.remove('show')">Continue</a>
+            <a id="updateConfirmButton" target="_blank">Update</a>
+
+            <br>
+            <br>
+            <p> Note: File can be directly ran within the zip file.</p>
+         </div>
+      </div>
+
+      <div class="info" id="info">
+         <h4>i</h4>
+         <h6 id="infoText">When you see "Animation running..." at the bottom right it means that the animation is playing and most features are temporary disabled.</h6>
+      </div>
+      <div class="lowerInfo" id="lowerInfo">
+         <h6>Animation running...</h6>
+      </div>
+
       <div class="disclaimer show" id="disclaimer">
          <h1>DISCLAIMER:</h1>
-         <h2>This web page was not tested on phones. So I don't suggest you use your phone. You must use Chrome version 6.1 and above, Internet Explorer 11 should work but I make no promises.</h1>
-         <h3>Click / Press anywhere or press any key to continue.</h3>
+         <h2>This web page will not work properly on phones. You must use Chrome version 6.1 and above, Internet Explorer 11 should work. Finally, you should open it in maximized window with internet connection.</h1>
+         <h3>Click / Press anywhere or press any keys to continue.</h3>
       </div>
 
       <div class="main" id="main">
@@ -656,17 +1581,17 @@
          <div class="hoverOverContainer" id="hoverOverContainer">
             <button type="button" class="hoverOver disable" id="hoverOver">Enable hover over</button>
          </div>
-         <div class="centerLogoDetails" id="centerLogoDetails">
-            <h5>Green is the meaning of harmony and is also the colour of my liking</h5>
+         <div class="centerLogoDetailsSelection" id="centerLogoDetailsSelection">
+            <h5>Green is the meaning of harmony.</h5>
          </div>
          <div class="centerLogoDetailsLine" id="centerLogoDetailsLine">
             <hr>
          </div>
-         <div class="centerLogo hoverOverActive" id="centerLogo">
+         <div class="centerLogo" id="centerLogo">
             <img src="https://i.imgur.com/fHm46R2.png" alt="Center logo template">
          </div>
-         <div class="projectName" id="projectName">
-            <img src="https://i.imgur.com/oncldpu.png" alt="Project name template">
+         <div class="clubName" id="clubName">
+            <img src="https://i.imgur.com/oncldpu.png" alt="Club name template">
          </div>
          <div class="graduationHatBackground" id="graduationHatBackground">
             <img src="https://i.imgur.com/0MCFdU2.png" alt="Graduation hat background template">
@@ -696,7 +1621,7 @@
             <img src="https://i.imgur.com/AFJLXVi.png" alt="Book background template">
          </div>
          <div class="bookSelection" id="bookSelection">
-            <h5>The book is say that you are filled with intellect. Where the yellow is to say the same thing.</h5>
+            <h5>The book is to say that we are filled with intellect. Where the yellow is to say the same thing.</h5>
          </div>
          <div class="bookLine" id="bookLine">
             <hr>
@@ -704,17 +1629,89 @@
          <div class="book" id="book">
             <img src="https://i.imgur.com/MmuYtlQ.png" alt="Book template">
          </div>
-         <div class="lowerLogo hoverOverActive" id="lowerLogo">
+         <div class="lowerLogo" id="lowerLogo">
             <img src="https://i.imgur.com/zN3nhb4.png" alt="Lower logo template">
          </div>
-         <div class="schoolName hoverOverActive" id="schoolName">
+         <div class="schoolName" id="schoolName">
             <img src="https://i.imgur.com/9OsmHNj.png" alt="School name template">
          </div>
       </div>
-      <a class="footerLink" href="https://github.com/JoshuaLimKarMin/English-society-logo"><div class="footer" id="footer">
+      <a class="footerLink" href="https://github.com/JoshuaLimKarMin/English-society-logo/blob/main/readme.md" target="_blank"><div class="footer" id="footer">
          <h6>Project name: HTML / CSS English society logo</h6>
-         <!-- P = Proper first completed project project (16 / June / 2021) -->
+         <!-- P = Proper first completed project (16 / June / 2021) -->
          <h6>Project code: 1606-HTML/CSS-P0001</h6>
       </div></a>
+      <div class="slideShow" id="slideShow">
+         <div class="slideShowCenterLogo show" id="slideShowCenterLogo">
+            <img src="https://i.imgur.com/fHm46R2.png">
+         </div>
+         <div class="slideShowLowerLogo show" id="slideShowLowerLogo">
+            <img src="https://i.imgur.com/zN3nhb4.png">
+         </div>
+         <div class="slideShowClubName" id="slideShowClubName">
+            <img src="https://i.imgur.com/oncldpu.png">
+         </div>
+         <div class="slideShowSchoolName" id="slideShowSchoolName">
+            <img src="https://i.imgur.com/9OsmHNj.png">
+         </div>
+         <div class="slideShowGraduationHatBackground" id="slideShowGraduationHatBackground">
+            <img src="https://i.imgur.com/0MCFdU2.png">
+         </div>
+         <div class="slideShowGraduationHat" id="slideShowGraduationHat">
+            <img src="https://i.imgur.com/d2DF3Fg.png">
+         </div>
+         <div class="slideShowHandshakeBackground" id="slideShowHandShakeBackground">
+            <img src="https://i.imgur.com/gr3zYjn.png">
+         </div>
+         <div class="slideShowHandShake" id="slideShowHandShake">
+            <img src="https://i.imgur.com/gJFhDBW.png">
+         </div>
+         <div class="SlideShowBookBackground" id="slideShowBookBackground">
+            <img src="https://i.imgur.com/AFJLXVi.png">
+         </div>
+         <div class="slideShowBook" id="slideShowBook">
+            <img src="https://i.imgur.com/MmuYtlQ.png">
+         </div>
+         <div class="slidesText" id="slidesText">
+            <h2 calss="partName" id="partName">Lime green color and frame</h1>
+
+            <hr>
+
+            <h3 class="partDetails" id="partDetails">First and only frame made with the lime green theme that declares peace and harmony among us all in this world.</h3>
+         </div>
+
+         <div class='credits' id='credits'>
+            <h1>Credits</h1>
+            <hr>
+
+            <br>
+
+            <h1>English Society Logo</h1>
+
+            <img src='https://i.imgur.com/ye4mgy7.png' alt='Complete logo'>
+
+            <hr>
+
+            <h2>People involved</h2>
+
+            <hr>
+
+            <h5>Joshua Lim             (Developer, 3D logo designer, 3D to 2D converter and feature designer)</h5>
+            <h5>Leong Wei Han          (Beta tester, bug hunter, secondary creativity dampener and the person who made me play Minecraft)</h5>
+            <h5>Chan Zi Jie / Jackie   (Creativity dampener, last minute feature manager and the person who takes advantage of me.)</h5>
+
+            <hr>
+            <br>
+            <br>
+
+            <div class="githubLink">
+               <a href="https://github.com/JoshuaLimKarMin/">
+                  <img src='https://github.com/fluidicon.png'>
+               </a>
+
+               <h6>GitHub</h6>
+            </div>
+         </div>
+      </div>
    </body>
 </html>
