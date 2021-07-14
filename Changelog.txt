@@ -1,0 +1,12 @@
+Change catalogue for version 2
+
+1. Hover over disabled completely due to issues during developent.
+2. New Disclaimer.
+3. Optimised code writing.
+4. Waiting for update script
+5. New animation.
+6. Slides system.
+7. Credits screen.
+8. New information system.
+9. Animation playing indication.
+10. Bug fixes
